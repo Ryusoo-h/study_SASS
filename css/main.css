@@ -33,6 +33,11 @@ h1 span {
   text-decoration: underline;
 }
 
+.container {
+  margin: 0 auto;
+  max-width: 840px;
+}
+
 .practice {
   padding: 6rem 2rem 8rem;
 }
@@ -166,7 +171,7 @@ h1 span {
 }
 
 #part6 section {
-  height: 80vh;
+  height: 600px;
   background-color: #eee;
 }
 #part6 section .wrapper {
