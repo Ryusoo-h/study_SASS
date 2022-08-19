@@ -53,6 +53,7 @@ h1 span {
   color: crimson;
 }
 .practice.dark {
+  padding: 2rem;
   background-color: rgb(68, 68, 68);
   color: rgb(252, 251, 248);
 }
