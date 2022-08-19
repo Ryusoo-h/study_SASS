@@ -1,0 +1,257 @@
+@font-face { // 마비옛체
+    font-family: 'MabinogiClassicR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/MabinogiClassicR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+
+.nanumgothiccoding * {
+ font-family: 'Nanum Gothic Coding', monospace;
+}
+$mabi-font: MabinogiClassicR, sans-serif;
+$coding: 'Nanum Gothic Coding', monospace;
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body {
+    font-family: MabinogiClassicR, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    margin: 0;
+    line-height: 10rem;
+    font-size: 3rem;
+    text-align: center;
+    span {
+        color: rgb(131, 82, 247);
+        text-decoration: underline;
+    }
+}
+.practice {
+    padding: 6rem 2rem 8rem;
+    &:nth-child(2n) { // part2. 부모참조
+        background-color: rgb(247, 247, 247);
+    }
+    h2 {
+        font-size: 2rem;
+        line-height: 2rem;
+        margin: 2rem 0 1rem;
+        span {
+            color: crimson;
+        }
+    }
+    &.dark {
+        background-color: rgb(68, 68, 68);
+        color: rgb(252, 251, 248);
+        h2 > span {
+            color: rgb(253, 80, 89);
+        }
+    }
+    p {
+        margin: 1rem 0;
+        padding: 0;
+        span {
+            display: block;
+            margin: 0.5rem 0;
+            padding: 0.7rem;
+            background-color: rgb(227, 239, 248);
+            border-radius: 8px;
+            color: rgb(12, 66, 146);
+            font-family: $coding;
+        }
+    }
+}
+
+#part1 { /* 중첩 */
+    .fruit-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        display: flex;
+        width: 600px;
+        li {
+            flex: 1;
+            border: solid 1px #333;
+            padding: 12px 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+    }
+}
+
+#part2 {
+    button {
+        background-color: crimson;
+        color: #fff;
+        display: block;
+        margin: 10rem auto;
+        width: 600px;
+        height: 70px;
+        padding-top: 10px;
+        line-height: 60px;
+        font-family: $mabi-font;
+        font-size: 40px;
+        font-weight: 700;
+        transition: color 0.4s, background-color 0.4s box-shadow 0.6s;
+        box-sizing: border-box;
+        position: relative;
+        border: none;
+        box-shadow: 0 0 14px rgba(255, 114, 142, 0.8);
+        &:hover { /* 부모참조 */
+            background-color: transparent;
+            color: crimson;
+            border-color:  transparent;
+            box-shadow: 0 0 0 rgba(255, 114, 142, 0);
+        }
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: inherit;
+            height: inherit;
+            background: transparent;
+            border: solid 2px crimson;
+            box-shadow: 0 0 10px rgba(255, 114, 142, 0.507);
+            box-sizing: border-box;
+            opacity: 0;
+            transition: 0.4s;
+        }
+        &:hover::before {
+            transform: rotate(30deg);
+            opacity: 0.3;
+        }
+        &:hover::after {
+            transform: rotate(-30deg);
+            opacity: 0.3;
+        }
+    }
+}
+
+#part3 {
+    %margin { /* 확장 */
+        margin: 0.7em 0;
+        text-align: center
+    }
+    .font {
+        &-large { /* 부모참조 */
+            @extend %margin;
+            font-size: 40px;
+            color: crimson;
+        }
+        &-medium {
+            @extend %margin;
+            font-size: 32px;
+            color: yellowgreen;
+        }
+        &-small {
+            @extend %margin;
+            font-size: 24px;
+        }
+    }
+}
+
+#part4 {
+    .btn {
+        margin: 10px;
+        padding: 0 20px;
+        border: none;
+        border-radius: 8px;
+        background-color: #333;
+        color: #fff;
+        font-size: 20px;
+        height: 40px;
+        line-height: 40px;
+        &.confirm {
+            background-color: yellowgreen;
+        }
+        &.warning {
+            background-color: crimson;
+        }
+    }
+}
+
+#part6 {
+    section {
+        height: 80vh;
+        background-color: #eee;
+        .wrapper {
+            width: 400px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba($color: #000000, $alpha: 0.14);
+            padding: 20px;
+            box-sizing: border-box;
+            $green: #0ca792;
+            h3 {
+                margin: 1rem 0;
+                font-size: 40px;
+                text-align: center;
+                color: $green;
+            }
+            #sign-inner {
+                input[type=button],
+                input[type=email],
+                input[type=password],
+                input[type=submit] {
+                    display: block;
+                    width: 100%;
+                    font-size: 18px;
+                    height: 44px;
+                    box-sizing: border-box;
+                    margin: 0.2rem 0 1rem;
+                    border-radius: 6px;
+                    border: solid 1px #d8d8d8;
+                    padding: 0 0.5rem;
+                }
+                input[type=button] {
+                    margin-bottom: 1.5rem;
+                    color: #636363;
+                    background-color: #fff;
+                    &:hover {
+                        color: $green;
+                        border-color: #b4b4b4;
+                    }
+                }
+                input[type=email]:focus, input[type=email]:active {
+                    background-color: rgb(255, 245, 200);
+                    outline: solid 1px orange;
+                }
+                input[type=checkbox] {
+                    width: 16px;
+                    height: 16px;
+                    accent-color: $green;
+                }
+                input[type=submit] {
+                    margin: 0.5rem 0;
+                    border: none;
+                    background-color: $green;
+                    color: #fff;
+                    transition: 0.2s;
+                    &:hover {
+                        background-color: #00927f;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#part7 {
+    .depth-1 {
+        .depth-2 {
+            color: #6d6d6d;
+            @at-root .flower { // 중첩나가기
+                color: #ff8800;
+                &::before {
+                    content: '🌼';
+                }
+            }
+        }
+    }
+}

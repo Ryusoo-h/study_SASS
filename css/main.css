@@ -1,0 +1,237 @@
+@charset "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+@font-face {
+  font-family: "MabinogiClassicR";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/MabinogiClassicR.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+.nanumgothiccoding * {
+  font-family: "Nanum Gothic Coding", monospace;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  font-family: MabinogiClassicR, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin: 0;
+  line-height: 10rem;
+  font-size: 3rem;
+  text-align: center;
+}
+h1 span {
+  color: rgb(131, 82, 247);
+  text-decoration: underline;
+}
+
+.practice {
+  padding: 6rem 2rem 8rem;
+}
+.practice:nth-child(2n) {
+  background-color: rgb(247, 247, 247);
+}
+.practice h2 {
+  font-size: 2rem;
+  line-height: 2rem;
+  margin: 2rem 0 1rem;
+}
+.practice h2 span {
+  color: crimson;
+}
+.practice.dark {
+  background-color: rgb(68, 68, 68);
+  color: rgb(252, 251, 248);
+}
+.practice.dark h2 > span {
+  color: rgb(253, 80, 89);
+}
+.practice p {
+  margin: 1rem 0;
+  padding: 0;
+}
+.practice p span {
+  display: block;
+  margin: 0.5rem 0;
+  padding: 0.7rem;
+  background-color: rgb(227, 239, 248);
+  border-radius: 8px;
+  color: rgb(12, 66, 146);
+  font-family: "Nanum Gothic Coding", monospace;
+}
+
+#part1 { /* 중첩 */ }
+#part1 .fruit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  width: 600px;
+}
+#part1 .fruit-list li {
+  flex: 1;
+  border: solid 1px #333;
+  padding: 12px 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+#part2 button {
+  background-color: crimson;
+  color: #fff;
+  display: block;
+  margin: 10rem auto;
+  width: 600px;
+  height: 70px;
+  padding-top: 10px;
+  line-height: 60px;
+  font-family: MabinogiClassicR, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  transition: color 0.4s, background-color 0.4s box-shadow 0.6s;
+  box-sizing: border-box;
+  position: relative;
+  border: none;
+  box-shadow: 0 0 14px rgba(255, 114, 142, 0.8);
+}
+#part2 button:hover { /* 부모참조 */
+  background-color: transparent;
+  color: crimson;
+  border-color: transparent;
+  box-shadow: 0 0 0 rgba(255, 114, 142, 0);
+}
+#part2 button::before, #part2 button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  background: transparent;
+  border: solid 2px crimson;
+  box-shadow: 0 0 10px rgba(255, 114, 142, 0.507);
+  box-sizing: border-box;
+  opacity: 0;
+  transition: 0.4s;
+}
+#part2 button:hover::before {
+  transform: rotate(30deg);
+  opacity: 0.3;
+}
+#part2 button:hover::after {
+  transform: rotate(-30deg);
+  opacity: 0.3;
+}
+
+#part3 .font-small, #part3 .font-medium, #part3 .font-large { /* 확장 */
+  margin: 0.7em 0;
+  text-align: center;
+}
+#part3 .font-large { /* 부모참조 */
+  font-size: 40px;
+  color: crimson;
+}
+#part3 .font-medium {
+  font-size: 32px;
+  color: yellowgreen;
+}
+#part3 .font-small {
+  font-size: 24px;
+}
+
+#part4 .btn {
+  margin: 10px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #333;
+  color: #fff;
+  font-size: 20px;
+  height: 40px;
+  line-height: 40px;
+}
+#part4 .btn.confirm {
+  background-color: yellowgreen;
+}
+#part4 .btn.warning {
+  background-color: crimson;
+}
+
+#part6 section {
+  height: 80vh;
+  background-color: #eee;
+}
+#part6 section .wrapper {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.14);
+  padding: 20px;
+  box-sizing: border-box;
+}
+#part6 section .wrapper h3 {
+  margin: 1rem 0;
+  font-size: 40px;
+  text-align: center;
+  color: #0ca792;
+}
+#part6 section .wrapper #sign-inner input[type=button],
+#part6 section .wrapper #sign-inner input[type=email],
+#part6 section .wrapper #sign-inner input[type=password],
+#part6 section .wrapper #sign-inner input[type=submit] {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  height: 44px;
+  box-sizing: border-box;
+  margin: 0.2rem 0 1rem;
+  border-radius: 6px;
+  border: solid 1px #d8d8d8;
+  padding: 0 0.5rem;
+}
+#part6 section .wrapper #sign-inner input[type=button] {
+  margin-bottom: 1.5rem;
+  color: #636363;
+  background-color: #fff;
+}
+#part6 section .wrapper #sign-inner input[type=button]:hover {
+  color: #0ca792;
+  border-color: #b4b4b4;
+}
+#part6 section .wrapper #sign-inner input[type=email]:focus, #part6 section .wrapper #sign-inner input[type=email]:active {
+  background-color: rgb(255, 245, 200);
+  outline: solid 1px orange;
+}
+#part6 section .wrapper #sign-inner input[type=checkbox] {
+  width: 16px;
+  height: 16px;
+  accent-color: #0ca792;
+}
+#part6 section .wrapper #sign-inner input[type=submit] {
+  margin: 0.5rem 0;
+  border: none;
+  background-color: #0ca792;
+  color: #fff;
+  transition: 0.2s;
+}
+#part6 section .wrapper #sign-inner input[type=submit]:hover {
+  background-color: #00927f;
+}
+
+#part7 .depth-1 .depth-2 {
+  color: #6d6d6d;
+}
+.flower {
+  color: #ff8800;
+}
+.flower::before {
+  content: "🌼";
+}

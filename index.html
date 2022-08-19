@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>SASS 공부!</title>
+</head>
+<body>
+    <header>
+        <h1><span>SCSS</span> 시작해욧!</h1>
+    </header>
+    <section id="part1" class="practice">
+        <h2><span>Part1.</span> 중첩</h2>
+        <ul class="fruit-list">
+            <li>🍎 사과</li>
+            <li>🍓 딸기</li>
+            <li>🍇 포도</li>
+            <li>🍋 레몬</li>
+        </ul>
+    </section>
+    <section id="part2" class="practice">
+        <h2><span>part2.</span> 부모참조</h2>
+        <p>&(앰퍼샌드)
+            <br> <span> ex) &:hover, &:first-child </span>
+        </p>
+        <button>MOUSE OVER</button>
+    </section>
+    <section id="part3" class="practice">
+        <h2><span>part3.</span> 부모참조 응용1</h2>
+        <p>&(앰퍼샌드)
+            <br> <span> ex) &-large, &-medium ,&-small</span>
+        </p>
+        <h3 class="font-large">H3 :앰퍼센트로 클래스이름도 참조가 된대요 &-large</h3>
+        <h4 class="font-medium">H4 : 앰퍼센트를사용하면 &-medium</h4>
+        <h5 class="font-small">H5 : 앰퍼센트를 사용하면 &-small</h5>
+    </section>
+    <section id="part4" class="practice">
+        <h2><span>part4.</span> 부모참조 응용2 - CLASS</h2>
+        <p>&(앰퍼샌드)
+            <br> <span> ex) &.confirm, &.warning</span>
+        </p>
+        <button class="btn">default Button</button>
+        <button class="btn confirm">Confirm Button</button>
+        <button class="btn warning">Warning Button</button>
+    </section>
+    <section id="part5" class="practice dark">
+        <h2><span>part5.</span> 부모참조 응용3 - par4랑 유사해서 패스</h2>
+    </section>
+    <section id="part6" class="practice">
+        <h2><span>part6.</span> 부모참조 응용4 - form 만들기</h2>
+        <p>&(앰퍼샌드)
+        </p>
+        <section class="flex-center">
+            <div class="wrapper">
+            <h3>Sign in</h3>
+            <form id="sign-inner">
+                <input type="button" value="Sign in with Google">
+                <label for="email">email</label>
+                <input type="email" name="email" id="email">
+                <label for="password">password</label>
+                <input type="password" name="password" id="password">
+                <input type="checkbox" name="" id="checkbox">
+                <label for="checkbox">Remember me for 30 days</label>
+                <input type="submit" value="Sign in" onclick="event.preventDefault();">
+            </form>
+        </div>
+        </section>
+    </section>
+    <section id="part7" class="practice">
+        <h2><span>part7.</span> 중첩 나가기</h2>
+        <p>중첩 나가기를 사용해서 depth1에서도 '🌼'이 적용됨
+            <br><span>@at-root</span></p>
+        <ul class="depth-1">
+            <li>1단계</li>
+            <li>2단계
+                <ul class="depth-2">
+                    <li>2-1단계</li>
+                    <li class="flower">2-2단계</li>
+                </ul>
+            </li>
+            <li class="flower">3단계</li>
+        </ul>
+    </section>
+    <section class="practice">
+        
+    </section>
+
+
+</body>
+</html>
