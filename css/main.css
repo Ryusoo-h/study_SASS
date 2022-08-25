@@ -60,18 +60,23 @@ h1 span {
 .practice.dark h2 > span {
   color: rgb(253, 80, 89);
 }
-.practice p {
+.practice p.description {
   margin: 1rem 0;
   padding: 0;
 }
-.practice p span {
+.practice p.description span {
   display: block;
   margin: 0.5rem 0;
-  padding: 0.7rem;
+  padding: 0.7rem 1rem 0.7rem 3rem;
   background-color: rgb(227, 239, 248);
   border-radius: 8px;
   color: rgb(12, 66, 146);
   font-family: "Nanum Gothic Coding", monospace;
+  line-height: 1.4rem;
+}
+.practice p.description span::before {
+  content: "ex) ";
+  margin-left: -2rem;
 }
 
 #part1 { /* 중첩 */ }
@@ -240,4 +245,76 @@ h1 span {
 }
 .flower::before {
   content: "🌼";
+}
+
+#part8 .test {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#part9 h3 {
+  font-size: 2rem;
+}
+#part9 :is(header, footer) h3 {
+  color: #636363;
+}
+#part9 :is(header, footer) h3::before {
+  content: "";
+  display: inline-block;
+  background-color: crimson;
+  width: 0.6rem;
+  height: 2rem;
+  border-radius: 0.3rem;
+  margin-right: 0.5rem;
+}
+
+#part10 div {
+  box-sizing: border-box;
+}
+#part10 .portfolio-items {
+  width: 750px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 180px);
+  grid-auto-rows: 180px;
+  grid-gap: 10px;
+}
+#part10 .portfolio-items .item {
+  border-radius: 10px;
+  border: solid 1px #333;
+  background: url(../);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#part10 .portfolio-items .item:nth-child(1) {
+  background-image: url("../asset/cat-01.jpg");
+}
+#part10 .portfolio-items .item:nth-child(2) {
+  background-image: url("../asset/cat-02.jpg");
+}
+#part10 .portfolio-items .item:nth-child(3) {
+  background-image: url("../asset/cat-03.jpg");
+}
+#part10 .portfolio-items .item:nth-child(4) {
+  background-image: url("../asset/cat-04.jpg");
+}
+#part10 .portfolio-items .item:nth-child(5) {
+  background-image: url("../asset/cat-05.jpg");
+}
+#part10 .portfolio-items .item:nth-child(6) {
+  background-image: url("../asset/cat-06.jpg");
+}
+#part10 .portfolio-items .item:nth-child(7) {
+  background-image: url("../asset/cat-07.jpg");
+}
+#part10 .portfolio-items .item:nth-child(8) {
+  background-image: url("../asset/cat-08.jpg");
+}
+
+#part11 .loram-box h3 {
+  color: rgb(191, 123, 255);
 }

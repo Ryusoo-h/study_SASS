@@ -56,17 +56,22 @@ h1 {
             color: rgb(253, 80, 89);
         }
     }
-    p {
+    p.description {
         margin: 1rem 0;
         padding: 0;
         span {
             display: block;
             margin: 0.5rem 0;
-            padding: 0.7rem;
+            padding: 0.7rem 1rem 0.7rem 3rem;
             background-color: rgb(227, 239, 248);
             border-radius: 8px;
             color: rgb(12, 66, 146);
             font-family: $coding;
+            line-height: 1.4rem;
+            &::before {
+                content: 'ex) ';
+                margin-left: -2rem;
+            }
         }
     }
 }
@@ -162,6 +167,8 @@ h1 {
 }
 
 #part4 {
+    $confirm-color:yellowgreen;
+    $warning-color: crimson;
     .btn {
         margin: 10px;
         padding: 0 20px;
@@ -173,10 +180,10 @@ h1 {
         height: 40px;
         line-height: 40px;
         &.confirm {
-            background-color: yellowgreen;
+            background-color: $confirm-color;
         }
         &.warning {
-            background-color: crimson;
+            background-color: $warning-color;
         }
     }
 }
@@ -259,4 +266,90 @@ h1 {
             }
         }
     }
+}
+#part8 {
+    .test {
+        font: { // 접두어(prefix)
+            size: 18px;
+            weight: 700;
+            family : sans-serif;
+        }
+        text: {
+            align: center;
+            transform: uppercase;
+        }
+    }
+}
+#part9 {
+    h3 {
+        font-size: 2rem;
+    }
+    :is(header,footer) h3 {
+        color: #636363;
+        &::before {
+            content: '';
+            display: inline-block;
+            background-color: crimson;
+            width: 0.6rem;
+            height: 2rem;
+            border-radius: 0.3rem;
+            margin-right: 0.5rem;
+        }
+    }
+}
+#part10 {
+    div {
+        box-sizing: border-box;
+    }
+    .portfolio-items {
+        $item-w: 180px;
+        $item-h: 180px;
+        $item-w-num: 4;
+        $item-bdrs: 10px;
+        $grid-gap: 10px;
+
+        width: ($item-w * $item-w-num)+($grid-gap * ($item-w-num - 1));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat($item-w-num, $item-w);
+        grid-auto-rows: $item-h;
+        grid-gap: 10px;
+        .item {
+            border-radius: $item-bdrs;
+            border: solid 1px #333;
+            background: url(../);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            $item-images-url: "../asset/";
+            &:nth-child(1) {
+                background-image: url($item-images-url +"cat-01.jpg");
+            }
+            &:nth-child(2) {
+                background-image: url($item-images-url +"cat-02.jpg");
+            }
+            &:nth-child(3) {
+                background-image: url($item-images-url +"cat-03.jpg");
+            }
+            &:nth-child(4) {
+                background-image: url($item-images-url +"cat-04.jpg");
+            }
+            &:nth-child(5) {
+                background-image: url($item-images-url +"cat-05.jpg");
+            }
+            &:nth-child(6) {
+                background-image: url($item-images-url +"cat-06.jpg");
+            }
+            &:nth-child(7) {
+                background-image: url($item-images-url +"cat-07.jpg");
+            }
+            &:nth-child(8) {
+                background-image: url($item-images-url +"cat-08.jpg");
+            }
+        }
+    }
+}
+#part11 {
+    @import "part11-reset-test";
 }

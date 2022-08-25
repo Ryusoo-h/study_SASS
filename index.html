@@ -24,8 +24,8 @@
     <section id="part2" class="practice">
         <div class="container">
             <h2><span>part2.</span> 부모참조</h2>
-            <p>&(앰퍼샌드)
-                <br> <span> ex) &:hover, &:first-child </span>
+            <p class="description">&(앰퍼샌드)
+                <br> <span>&:hover, &:first-child </span>
             </p>
             <button>MOUSE OVER</button>
         </div>
@@ -33,8 +33,8 @@
     <section id="part3" class="practice">
         <div class="container">
             <h2><span>part3.</span> 부모참조 응용1</h2>
-            <p>&(앰퍼샌드)
-                <br> <span> ex) &-large, &-medium ,&-small</span>
+            <p class="description">&(앰퍼샌드)
+                <br> <span>&-large, &-medium ,&-small</span>
             </p>
             <h3 class="font-large">H3 :앰퍼센트로 클래스이름도 참조가 된대요 &-large</h3>
             <h4 class="font-medium">H4 : 앰퍼센트를사용하면 &-medium</h4>
@@ -43,9 +43,13 @@
     </section>
     <section id="part4" class="practice">
         <div class="container">
-            <h2><span>part4.</span> 부모참조 응용2 - CLASS</h2>
-            <p>&(앰퍼샌드)
-                <br> <span> ex) &.confirm, &.warning</span>
+            <h2><span>part4.</span> 부모참조 응용2 - CLASS / 변수사용</h2>
+            <p class="description">&(앰퍼샌드)
+                <br> <span>&.confirm, &.warning</span>
+            </p><p class="description">변수 : 숫자로 시작 x, 기호 시작x(*-_)
+                <br><span>$confirm-color:yellowgreen;
+                    <br>$warning-color: crimson;
+                </span>
             </p>
             <button class="btn">default Button</button>
             <button class="btn confirm">Confirm Button</button>
@@ -60,7 +64,7 @@
     <section id="part6" class="practice">
         <div class="container">
             <h2><span>part6.</span> 부모참조 응용4 - form 만들기</h2>
-            <p>&(앰퍼샌드)</p>
+            <p class="description">&(앰퍼샌드)</p>
             <section class="flex-center">
                 <div class=" wrapper">
                     <h3>Sign in</h3>
@@ -81,7 +85,7 @@
     <section id="part7" class="practice">
         <div class="container">
             <h2><span>part7.</span> 중첩 나가기</h2>
-            <p>중첩 나가기를 사용해서 depth1에서도 '🌼'이 적용됨
+            <p class="description">중첩 나가기를 사용해서 depth1에서도 '🌼'이 적용됨
                 <br><span>@at-root</span></p>
             <ul class="depth-1">
                 <li>1단계</li>
@@ -95,12 +99,92 @@
             </ul>
         </div>
     </section>
-    <section class="practice">
+    <section id="part8" class="practice">
         <div class="container">
-            
+            <h2><span>part8.</span> 접두어(prefix) 사용해서 CSS 속성 자동생성</h2>
+            <p class="description">
+                꼭 이렇게 쓰지 않아도되지만 이런게 있다는것은 알아둘것!
+                <br><span>font: {size: 18px; weight: 700; family: sans-serif; }
+                    <br>text: { align: center; transform: uppercase; }
+                </span>
+            </p>
+            <p class="test">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolores?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, ut.
+            </p>
         </div>
     </section>
+    <section id="part9" class="practice">
+        <div class="container">
+            <h2><span>part9.</span>가상클래스 :is로 선택자 중복 줄이기</h2>
+            <p class="description">
+                CSS 문법이다. SCSS에서도 적용이 된다
+                <br><span>:is(header,footer) h3</span>
+            </p>
+            <header>
+                <h3>header의 제목</h3>
+            </header>
+            <section>
+                <h3>section의 제목</h3>
+            </section>
+            <footer>
+                <h3>footer의 제목</h3>
+            </footer>
+        </div>
+    </section>
+    <section id="part10" class="practice">
+        <div class="container">
+            <h2><span>part10.</span>변수사용 - 포트폴리오만들기</h2>
+            <p class="description">
+                url에 변수 사용시 주의점 : 변수에는 " " 를 붙이지 않는다
+                <br><span>
+                    $item-images-url: "../asset/";
+                    <br>&:nth-child(1) { background-image: url($item-images-url +"cat-01.jpg"); }
+                </span>
+            </p>
+            <div class="portfolio-items">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+        </div>
+    </section>
+    <section id="part11" class="practice">
+        <div class="container">
+            <h2><span>part11.</span>외부파일 가져오기</h2>
+            <p class="description">
+                @import로 가져오고 컴파일되서 적용됨
+                <br><span>@import "reset"; /* scss파일을 가져와야 하기때문에 확장자없이 이름만 써도 됨*/
+                    <br>@import "reset.css";
+                </span>
+            </p>
+            <div class="loram-box">
+                <h3>Lorem ipsum dolor sit amet.</h3>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione inventore reprehenderit laudantium dignissimos sequi consectetur nesciunt magnam error ea fugiat.
+                </p>
+                <ul>
+                    <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, dolore?</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, explicabo!</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, aut?</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="practice">
+        <div class="container">
+            <h2><span>part0.</span>title</h2>
+            <p class="description">
+                <br><span></span>
+            </p>
 
+        </div>
+    </section>
 
 </body>
 </html>
