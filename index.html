@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="./css/main.css">
+    <script src="./custom.js" defer></script>
     <title>SASS 공부!</title>
 </head>
 <body>
@@ -23,29 +24,25 @@
     </section>
     <section id="part2" class="practice">
         <div class="container">
-            <h2><span>part2.</span> 부모참조</h2>
+            <h2><span>Part2.</span> 부모참조</h2>
             <p class="description">&(앰퍼샌드)
-                <br> <span>&:hover, &:first-child </span>
+                <br> <span><b>&</b>:hover, <b>&</b>:first-child </span>
             </p>
             <button>MOUSE OVER</button>
         </div>
     </section>
-    <section id="part3" class="practice">
+    <section id="part3" class="practice useful">
         <div class="container">
-            <h2><span>part3.</span> 부모참조 응용1</h2>
+            <h2><span>Part3.</span> 부모참조 응용1</h2>
             <p class="description">&(앰퍼샌드)
-                <br> <span>&-large, &-medium ,&-small</span>
+                <br> <span><b>&</b>-large, <b>&</b>-medium ,<b>&</b>-small</span>
             </p>
             <h3 class="font-large">H3 :앰퍼센트로 클래스이름도 참조가 된대요 &-large</h3>
             <h4 class="font-medium">H4 : 앰퍼센트를사용하면 &-medium</h4>
             <h5 class="font-small">H5 : 앰퍼센트를 사용하면 &-small</h5>
-        </div>
-    </section>
-    <section id="part4" class="practice">
-        <div class="container">
-            <h2><span>part4.</span> 부모참조 응용2 - CLASS / 변수사용</h2>
-            <p class="description">&(앰퍼샌드)
-                <br> <span>&.confirm, &.warning</span>
+            
+            <p class="description">
+                <br> <span><b>&</b>.confirm, <b>&</b>.warning</span>
             </p><p class="description">변수 : 숫자로 시작 x, 기호 시작x(*-_)
                 <br><span>$confirm-color:yellowgreen;
                     <br>$warning-color: crimson;
@@ -56,15 +53,10 @@
             <button class="btn warning">Warning Button</button>
         </div>
     </section>
-    <section id="part5" class="practice dark">
+    <section id="part4" class="practice">
         <div class="container">
-            <h2><span>part5.</span> 부모참조 응용3 - par4랑 유사해서 패스</h2>
-        </div>
-    </section>
-    <section id="part6" class="practice">
-        <div class="container">
-            <h2><span>part6.</span> 부모참조 응용4 - form 만들기</h2>
-            <p class="description">&(앰퍼샌드)</p>
+            <h2><span>Part4.</span> 부모참조 응용2 - form 만들기</h2>
+            <p class="description">&(앰퍼센트)</p>
             <section class="flex-center">
                 <div class=" wrapper">
                     <h3>Sign in</h3>
@@ -82,11 +74,11 @@
             </section>
         </div>
     </section>
-    <section id="part7" class="practice">
+    <section id="part5" class="practice">
         <div class="container">
-            <h2><span>part7.</span> 중첩 나가기</h2>
+            <h2><span>Part5.</span> 중첩 나가기</h2>
             <p class="description">중첩 나가기를 사용해서 depth1에서도 '🌼'이 적용됨
-                <br><span>@at-root</span></p>
+                <br><span><b>@at-root</b></span></p>
             <ul class="depth-1">
                 <li>1단계</li>
                 <li>2단계
@@ -99,13 +91,13 @@
             </ul>
         </div>
     </section>
-    <section id="part8" class="practice">
+    <section id="part6" class="practice">
         <div class="container">
-            <h2><span>part8.</span> 접두어(prefix) 사용해서 CSS 속성 자동생성</h2>
+            <h2><span>Part6.</span> 접두어(prefix) 사용해서 CSS 속성 자동생성</h2>
             <p class="description">
                 꼭 이렇게 쓰지 않아도되지만 이런게 있다는것은 알아둘것!
-                <br><span>font: {size: 18px; weight: 700; family: sans-serif; }
-                    <br>text: { align: center; transform: uppercase; }
+                <br><span><b>font:</b> {size: 18px; weight: 700; family: sans-serif; }
+                    <br><b>text:</b> { align: center; transform: uppercase; }
                 </span>
             </p>
             <p class="test">
@@ -114,12 +106,12 @@
             </p>
         </div>
     </section>
-    <section id="part9" class="practice">
+    <section id="part7" class="practice useful">
         <div class="container">
-            <h2><span>part9.</span>가상클래스 :is로 선택자 중복 줄이기</h2>
+            <h2><span>Part7.</span>가상클래스 :is로 선택자 중복 줄이기</h2>
             <p class="description">
                 CSS 문법이다. SCSS에서도 적용이 된다
-                <br><span>:is(header,footer) h3</span>
+                <br><span><b>:is</b>(header,footer) h3</span>
             </p>
             <header>
                 <h3>header의 제목</h3>
@@ -132,14 +124,14 @@
             </footer>
         </div>
     </section>
-    <section id="part10" class="practice">
+    <section id="part8" class="practice useful">
         <div class="container">
-            <h2><span>part10.</span>변수사용 - 포트폴리오만들기</h2>
+            <h2><span>Part8.</span>변수사용 - 포트폴리오만들기</h2>
             <p class="description">
                 url에 변수 사용시 주의점 : 변수에는 " " 를 붙이지 않는다
                 <br><span>
-                    $item-images-url: "../asset/";
-                    <br>&:nth-child(1) { background-image: url($item-images-url +"cat-01.jpg"); }
+                    <b>$item-images-url</b>: "../asset/";
+                    <br>&:nth-child(1) { background-image: url(<b>$item-images-url</b> +"cat-01.jpg"); }
                 </span>
             </p>
             <div class="portfolio-items">
@@ -154,13 +146,13 @@
             </div>
         </div>
     </section>
-    <section id="part11" class="practice">
+    <section id="part9" class="practice">
         <div class="container">
-            <h2><span>part11.</span>외부파일 가져오기</h2>
+            <h2><span>Part9.</span>@import 외부파일 가져오기</h2>
             <p class="description">
                 @import로 가져오고 컴파일되서 적용됨
-                <br><span>@import "reset"; /* scss파일을 가져와야 하기때문에 확장자없이 이름만 써도 됨*/
-                    <br>@import "reset.css";
+                <br><span><b>@import</b> "reset"; /* scss파일을 가져와야 하기때문에 확장자없이 이름만 써도 됨*/
+                    <br><b>@import</b> "reset.css";
                 </span>
             </p>
             <div class="loram-box">
@@ -176,15 +168,99 @@
             </div>
         </div>
     </section>
-    <section class="practice">
+    <section id="part10" class="practice dark">
         <div class="container">
-            <h2><span>part0.</span>title</h2>
+            <h2><span>Part10.</span>연산자(Operations)</h2>
+            <p class="description">
+                산술연산자 : + - * / %
+                <br><b>/</b>를 사용할때는 ( )로 감싸주어야 한다
+                <br><span>padding: <b>(</b>50px <b>/</b> 10px<b>)</b>;</span>
+            </p>
+        </div>
+    </section>
+    <section id="part11" class="practice useful">
+        <div class="container">
+            <h2><span>Part11.</span>@mixin 그룹 선언 / @include 사용하기</h2>
+            <p class="description">
+                @mixin, @include
+                <br> 선언을 먼저하고 사용해야한다.
+                <br><span><b>@mixin</b> 믹스인 이름 { }
+                    <br>선택자 { <b>@include</b> 믹스인 이름;}
+                    <br> 또는
+                    <br><b>@mixin</b> 믹스인 이름(변수인자, 변수인자) { }
+                    <br>선택자 { <b>@include</b> 믹스인 이름(변수인자, 변수인자);}
+                </span>
+            </p>
+            <div class="wrapper">
+                <h3 class="heading">
+                    codingworks <span>publishing</span> class
+                </h3>
+                <div class="btns">
+                    <button class="complete">완료</button>
+                    <button class="loading">전송중</button>
+                    <button class="error">오류</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="part12" class="practice">
+        <div class="container">
+            <h2><span>Part12.</span>@extend 선택자 속성 가져오기</h2>
+            <p class="description">
+                @extend : 클래스 이름을 전달하면
+                <br><span><b>.btn</b> { }
+                    <br>.order { <b>@extend .btn</b> } // 컴파일 된 파일에 .btn 클래스가 생김
+                </span>
+                @extend : %로 전달하면
+                <br><span><b>%shape</b> { }
+                    <br>.card-item { <b>@extend %shape</b> } // 컴파일된 파일에 shape 클래스가 생기지 않음
+                </span>
+            </p>
+            <div class="wrapper">
+                <div class="buttons">
+                    <button class="order">order</button>
+                    <button class="add">add</button>
+                    <button class="checkout">checkout</button>
+                </div>
+                <div class="card">
+                    <div class="card-item">Card Item #01</div>
+                    <div class="card-item">Card Item #02</div>
+                    <div class="card-item">Card Item #03</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="part13" class="practice">
+        <div class="container">
+            <h2><span>Part13.</span>다중 변수 선언, 내장함수 map-get()</h2>
+            <p class="description">
+                폰트나 색바꿀때 편하겠지?
+                <br><span>
+                    <br><b>$color: (
+                    <br>&nbsp;&nbsp;font-primary: #333,
+                    <br>&nbsp;&nbsp;font-focus: crimson,
+                    <br>);</b>
+                    <br>.frame h1 {
+                    <br>&nbsp;&nbsp;color: <b>map-get($color, font-primary)</b>;
+                    <br>&nbsp;&nbsp;&:hover {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;color: <b>map-get($color, font-focus)</b>;
+                    <br>&nbsp;&nbsp;}
+                    <br>}
+                </span>
+            </p>
+            <div class="frame">
+                <h1>Mouse over</h1>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="practice">
+        <div class="container">
+            <h2><span>Part0.</span>title</h2>
             <p class="description">
                 <br><span></span>
             </p>
-
         </div>
-    </section>
+    </section> -->
 
 </body>
 </html>

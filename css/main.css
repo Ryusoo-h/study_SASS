@@ -16,10 +16,79 @@
   align-items: center;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: MabinogiClassicR, sans-serif;
   margin: 0;
   padding: 0;
+}
+body > aside {
+  position: fixed;
+  z-index: 9999999;
+  bottom: 1rem;
+  right: 0;
+  box-sizing: border-box;
+  padding: 1rem;
+  padding-left: 50px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.18);
+  border-radius: 8px 0 0 8px;
+  overflow: hidden;
+  transition: all 0.35s ease-in-out;
+}
+body > aside::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 40px;
+  height: 100%;
+  background-color: rgb(131, 82, 247);
+}
+body > aside::after {
+  content: "◀";
+  font-size: 14px;
+  padding: 13px;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+  opacity: 0;
+}
+body > aside:not(:hover) {
+  transform: translateX(calc(100% - 40px));
+}
+body > aside:not(:hover)::after {
+  opacity: 1;
+}
+body > aside ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body > aside ul li {
+  font-size: 14px;
+}
+body > aside ul li a {
+  padding: 0.3rem 0;
+  display: block;
+  color: #000000;
+  text-decoration: none;
+}
+body > aside ul li a span {
+  color: crimson;
+}
+body > aside ul li a:focus {
+  outline: none;
+  background-color: hsla(258deg, 91%, 65%, 0.1);
+}
+body > aside ul li a:hover {
+  color: rgb(131, 82, 247);
 }
 
 h1 {
@@ -41,13 +110,21 @@ h1 span {
 .practice {
   padding: 6rem 2rem 8rem;
 }
-.practice:nth-child(2n) {
+.practice:nth-child(2n-1) {
   background-color: rgb(247, 247, 247);
+}
+.practice.useful h2::before {
+  content: "👍";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-80%, -90%) rotate(-26deg);
 }
 .practice h2 {
   font-size: 2rem;
   line-height: 2rem;
   margin: 2rem 0 1rem;
+  position: relative;
 }
 .practice h2 span {
   color: crimson;
@@ -60,9 +137,14 @@ h1 span {
 .practice.dark h2 > span {
   color: rgb(253, 80, 89);
 }
+.practice.dark p.description span {
+  color: rgb(147, 182, 235);
+  background-color: #363636;
+}
 .practice p.description {
   margin: 1rem 0;
   padding: 0;
+  line-height: 1.5rem;
 }
 .practice p.description span {
   display: block;
@@ -73,6 +155,9 @@ h1 span {
   color: rgb(12, 66, 146);
   font-family: "Nanum Gothic Coding", monospace;
   line-height: 1.4rem;
+}
+.practice p.description span b {
+  color: rgb(131, 82, 247);
 }
 .practice p.description span::before {
   content: "ex) ";
@@ -157,8 +242,7 @@ h1 span {
 #part3 .font-small {
   font-size: 24px;
 }
-
-#part4 .btn {
+#part3 .btn, #part3 #part12 .wrapper .checkout, #part12 .wrapper #part3 .checkout, #part3 #part12 .wrapper .add, #part12 .wrapper #part3 .add, #part3 #part12 .wrapper .order, #part12 .wrapper #part3 .order {
   margin: 10px;
   padding: 0 20px;
   border: none;
@@ -169,18 +253,18 @@ h1 span {
   height: 40px;
   line-height: 40px;
 }
-#part4 .btn.confirm {
+#part3 .btn.confirm, #part3 #part12 .wrapper .confirm.checkout, #part12 .wrapper #part3 .confirm.checkout, #part3 #part12 .wrapper .confirm.add, #part12 .wrapper #part3 .confirm.add, #part3 #part12 .wrapper .confirm.order, #part12 .wrapper #part3 .confirm.order {
   background-color: yellowgreen;
 }
-#part4 .btn.warning {
+#part3 .btn.warning, #part3 #part12 .wrapper .warning.checkout, #part12 .wrapper #part3 .warning.checkout, #part3 #part12 .wrapper .warning.add, #part12 .wrapper #part3 .warning.add, #part3 #part12 .wrapper .warning.order, #part12 .wrapper #part3 .warning.order {
   background-color: crimson;
 }
 
-#part6 section {
+#part4 section {
   height: 600px;
   background-color: #eee;
 }
-#part6 section .wrapper {
+#part4 section .wrapper {
   width: 400px;
   background-color: #fff;
   border-radius: 8px;
@@ -188,16 +272,16 @@ h1 span {
   padding: 20px;
   box-sizing: border-box;
 }
-#part6 section .wrapper h3 {
+#part4 section .wrapper h3 {
   margin: 1rem 0;
   font-size: 40px;
   text-align: center;
   color: #0ca792;
 }
-#part6 section .wrapper #sign-inner input[type=button],
-#part6 section .wrapper #sign-inner input[type=email],
-#part6 section .wrapper #sign-inner input[type=password],
-#part6 section .wrapper #sign-inner input[type=submit] {
+#part4 section .wrapper #sign-inner input[type=button],
+#part4 section .wrapper #sign-inner input[type=email],
+#part4 section .wrapper #sign-inner input[type=password],
+#part4 section .wrapper #sign-inner input[type=submit] {
   display: block;
   width: 100%;
   font-size: 18px;
@@ -208,36 +292,36 @@ h1 span {
   border: solid 1px #d8d8d8;
   padding: 0 0.5rem;
 }
-#part6 section .wrapper #sign-inner input[type=button] {
+#part4 section .wrapper #sign-inner input[type=button] {
   margin-bottom: 1.5rem;
   color: #636363;
   background-color: #fff;
 }
-#part6 section .wrapper #sign-inner input[type=button]:hover {
+#part4 section .wrapper #sign-inner input[type=button]:hover {
   color: #0ca792;
   border-color: #b4b4b4;
 }
-#part6 section .wrapper #sign-inner input[type=email]:focus, #part6 section .wrapper #sign-inner input[type=email]:active {
+#part4 section .wrapper #sign-inner input[type=email]:focus, #part4 section .wrapper #sign-inner input[type=email]:active {
   background-color: rgb(255, 245, 200);
   outline: solid 1px orange;
 }
-#part6 section .wrapper #sign-inner input[type=checkbox] {
+#part4 section .wrapper #sign-inner input[type=checkbox] {
   width: 16px;
   height: 16px;
   accent-color: #0ca792;
 }
-#part6 section .wrapper #sign-inner input[type=submit] {
+#part4 section .wrapper #sign-inner input[type=submit] {
   margin: 0.5rem 0;
   border: none;
   background-color: #0ca792;
   color: #fff;
   transition: 0.2s;
 }
-#part6 section .wrapper #sign-inner input[type=submit]:hover {
+#part4 section .wrapper #sign-inner input[type=submit]:hover {
   background-color: #00927f;
 }
 
-#part7 .depth-1 .depth-2 {
+#part5 .depth-1 .depth-2 {
   color: #6d6d6d;
 }
 .flower {
@@ -247,7 +331,7 @@ h1 span {
   content: "🌼";
 }
 
-#part8 .test {
+#part6 .test {
   font-size: 18px;
   font-weight: 700;
   font-family: sans-serif;
@@ -255,13 +339,13 @@ h1 span {
   text-transform: uppercase;
 }
 
-#part9 h3 {
+#part7 h3 {
   font-size: 2rem;
 }
-#part9 :is(header, footer) h3 {
+#part7 :is(header, footer) h3 {
   color: #636363;
 }
-#part9 :is(header, footer) h3::before {
+#part7 :is(header, footer) h3::before {
   content: "";
   display: inline-block;
   background-color: crimson;
@@ -271,10 +355,10 @@ h1 span {
   margin-right: 0.5rem;
 }
 
-#part10 div {
+#part8 div {
   box-sizing: border-box;
 }
-#part10 .portfolio-items {
+#part8 .portfolio-items {
   width: 750px;
   margin: 0 auto;
   display: grid;
@@ -282,7 +366,7 @@ h1 span {
   grid-auto-rows: 180px;
   grid-gap: 10px;
 }
-#part10 .portfolio-items .item {
+#part8 .portfolio-items .item {
   border-radius: 10px;
   border: solid 1px #333;
   background: url(../);
@@ -290,31 +374,152 @@ h1 span {
   background-repeat: no-repeat;
   background-size: cover;
 }
-#part10 .portfolio-items .item:nth-child(1) {
+#part8 .portfolio-items .item:nth-child(1) {
   background-image: url("../asset/cat-01.jpg");
 }
-#part10 .portfolio-items .item:nth-child(2) {
+#part8 .portfolio-items .item:nth-child(2) {
   background-image: url("../asset/cat-02.jpg");
 }
-#part10 .portfolio-items .item:nth-child(3) {
+#part8 .portfolio-items .item:nth-child(3) {
   background-image: url("../asset/cat-03.jpg");
 }
-#part10 .portfolio-items .item:nth-child(4) {
+#part8 .portfolio-items .item:nth-child(4) {
   background-image: url("../asset/cat-04.jpg");
 }
-#part10 .portfolio-items .item:nth-child(5) {
+#part8 .portfolio-items .item:nth-child(5) {
   background-image: url("../asset/cat-05.jpg");
 }
-#part10 .portfolio-items .item:nth-child(6) {
+#part8 .portfolio-items .item:nth-child(6) {
   background-image: url("../asset/cat-06.jpg");
 }
-#part10 .portfolio-items .item:nth-child(7) {
+#part8 .portfolio-items .item:nth-child(7) {
   background-image: url("../asset/cat-07.jpg");
 }
-#part10 .portfolio-items .item:nth-child(8) {
+#part8 .portfolio-items .item:nth-child(8) {
   background-image: url("../asset/cat-08.jpg");
 }
 
-#part11 .loram-box h3 {
+#part9 .loram-box h3 {
   color: rgb(191, 123, 255);
+}
+
+#part11 .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#part11 .wrapper .heading {
+  text-align: center;
+  font-size: 2.4rem;
+  text-transform: capitalize;
+  position: relative;
+  padding-bottom: 12px;
+}
+#part11 .wrapper .heading span {
+  color: rgb(131, 82, 247);
+}
+#part11 .wrapper .heading::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  background-color: crimson;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#part11 .wrapper .btns .complete {
+  font-size: 17px;
+  width: 120px;
+  padding: 6px;
+  margin: 6px;
+  background-color: #fff;
+  border-radius: 6px;
+  transition: 0.35s;
+  border: solid 3px skyblue;
+  color: skyblue;
+}
+#part11 .wrapper .btns .complete:hover {
+  background-color: skyblue;
+  color: #fff;
+}
+#part11 .wrapper .btns .loading {
+  font-size: 17px;
+  width: 120px;
+  padding: 6px;
+  margin: 6px;
+  background-color: #fff;
+  border-radius: 6px;
+  transition: 0.35s;
+  border: solid 3px yellowgreen;
+  color: yellowgreen;
+}
+#part11 .wrapper .btns .loading:hover {
+  background-color: yellowgreen;
+  color: #fff;
+}
+#part11 .wrapper .btns .error {
+  font-size: 17px;
+  width: 120px;
+  padding: 6px;
+  margin: 6px;
+  background-color: #fff;
+  border-radius: 6px;
+  transition: 0.35s;
+  border: solid 3px crimson;
+  color: crimson;
+}
+#part11 .wrapper .btns .error:hover {
+  background-color: crimson;
+  color: #fff;
+}
+
+#part12 .wrapper {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex-flow: column;
+}
+#part12 .wrapper .btn, #part12 .wrapper .checkout, #part12 .wrapper .add, #part12 .wrapper .order {
+  width: 200px;
+  padding: 7px;
+  background-color: #fff;
+  color: #fff;
+  font-size: 18px;
+  text-transform: capitalize;
+  border-radius: 6px;
+  border-color: transparent;
+}
+#part12 .wrapper .order {
+  background-color: rgb(131, 82, 247);
+}
+#part12 .wrapper .add {
+  background-color: rgb(156, 236, 35);
+}
+#part12 .wrapper .checkout {
+  background-color: rgb(4, 207, 207);
+}
+#part12 .wrapper .card-item {
+  background-color: #fff;
+  width: 250px;
+  height: 300px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+#part12 .wrapper .card {
+  display: flex;
+  gap: 30px;
+}
+#part12 .wrapper .card-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#part13 .frame h1 {
+  color: #333;
+}
+#part13 .frame h1:hover {
+  color: crimson;
 }

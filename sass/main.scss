@@ -11,15 +11,88 @@
 }
 $mabi-font: MabinogiClassicR, sans-serif;
 $coding: 'Nanum Gothic Coding', monospace;
+$purple: rgb(131, 82, 247);
+$purple10: hsla(258, 91%, 65%, 0.1);
 .flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: MabinogiClassicR, sans-serif;
     margin: 0;
     padding: 0;
+    & > aside {
+        $w : 40px;
+        position: fixed;
+        z-index: 9999999;
+        bottom: 1rem;
+        right: 0;
+        box-sizing: border-box;
+        padding: 1rem;
+        padding-left: $w + 10px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.18);
+        border-radius: 8px 0 0 8px;
+        overflow: hidden;
+        transition: all 0.35s ease-in-out;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: $w;
+            height: 100%;
+            background-color: $purple;
+        }
+        &::after {
+            content: '◀';
+            $f-size: 14px;
+            font-size: $f-size;
+            padding: (($w - $f-size)/2);
+            color: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: 0.5s;
+            opacity: 0;
+        }
+        &:not(:hover) {
+            transform: translateX(calc(100% - $w));
+            &::after {
+                opacity: 1;
+            }
+        }
+        
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+                font-size: 14px;
+                a {
+                    padding: 0.3rem 0;
+                    display: block;
+                    color: #000000;
+                    text-decoration: none;
+                    span {
+                        color: crimson;
+                    }
+                    &:focus {
+                        outline: none;
+                        background-color: $purple10;
+                    }
+                    &:hover {
+                        color: $purple;
+                    }
+                }
+            }
+        }
+    }
 }
 h1 {
     margin: 0;
@@ -27,7 +100,7 @@ h1 {
     font-size: 3rem;
     text-align: center;
     span {
-        color: rgb(131, 82, 247);
+        color: $purple;
         text-decoration: underline;
     }
 }
@@ -37,13 +110,21 @@ h1 {
 }
 .practice {
     padding: 6rem 2rem 8rem;
-    &:nth-child(2n) { // part2. 부모참조
+    &:nth-child(2n-1) { // part2. 부모참조
         background-color: rgb(247, 247, 247);
+    }
+    &.useful h2::before {
+        content: '👍';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-80%, -90%) rotate(-26deg);
     }
     h2 {
         font-size: 2rem;
         line-height: 2rem;
         margin: 2rem 0 1rem;
+        position: relative;
         span {
             color: crimson;
         }
@@ -55,10 +136,15 @@ h1 {
         h2 > span {
             color: rgb(253, 80, 89);
         }
+        p.description span {
+            color: rgb(147, 182, 235);
+            background-color: #363636;
+        }
     }
     p.description {
         margin: 1rem 0;
         padding: 0;
+        line-height: 1.5rem;
         span {
             display: block;
             margin: 0.5rem 0;
@@ -68,6 +154,9 @@ h1 {
             color: rgb(12, 66, 146);
             font-family: $coding;
             line-height: 1.4rem;
+            b {
+                color: $purple;
+            }
             &::before {
                 content: 'ex) ';
                 margin-left: -2rem;
@@ -164,9 +253,6 @@ h1 {
             font-size: 24px;
         }
     }
-}
-
-#part4 {
     $confirm-color:yellowgreen;
     $warning-color: crimson;
     .btn {
@@ -188,7 +274,7 @@ h1 {
     }
 }
 
-#part6 {
+#part4 {
     section {
         height: 600px;
         background-color: #eee;
@@ -254,7 +340,7 @@ h1 {
     }
 }
 
-#part7 {
+#part5 {
     .depth-1 {
         .depth-2 {
             color: #6d6d6d;
@@ -267,7 +353,7 @@ h1 {
         }
     }
 }
-#part8 {
+#part6 {
     .test {
         font: { // 접두어(prefix)
             size: 18px;
@@ -280,7 +366,7 @@ h1 {
         }
     }
 }
-#part9 {
+#part7 {
     h3 {
         font-size: 2rem;
     }
@@ -297,7 +383,7 @@ h1 {
         }
     }
 }
-#part10 {
+#part8 {
     div {
         box-sizing: border-box;
     }
@@ -350,6 +436,126 @@ h1 {
         }
     }
 }
+#part9 {
+    @import "reset-test";
+}
 #part11 {
-    @import "part11-reset-test";
+    .wrapper {
+        @mixin headline { // 그룹 선언
+            text-align: center;
+            font-size: 2.4rem;
+            text-transform: capitalize;
+            position: relative;
+            padding-bottom: 12px;
+            span {
+                color: $purple;
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                width: 100px;
+                height: 4px;
+                background-color: crimson;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        .heading {
+            @include headline; // 그룹 사용
+        }
+        .btns {
+            $complete-color: skyblue;
+            $loading-color: yellowgreen;
+            $error-color: crimson;
+            @mixin notice-button($color) {
+                font-size: 17px;
+                width: 120px;
+                padding: 6px;
+                margin: 6px;
+                background-color: #fff;
+                border-radius: 6px;
+                transition: 0.35s;
+                border: solid 3px $color;
+                color: $color;
+                &:hover {
+                    background-color: $color;
+                    color: #fff;
+                }
+            }
+            .complete {
+                @include notice-button($complete-color);
+            }
+            .loading {
+                @include notice-button($loading-color);
+            }
+            .error {
+                @include notice-button($error-color);
+            }
+        }
+    }
+}
+#part12 {
+    .wrapper {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        flex-flow: column;
+        .btn {
+            width: 200px;
+            padding: 7px;
+            background-color: #fff;
+            color: #fff;
+            font-size: 18px;text-transform: capitalize;
+            border-radius: 6px;
+            border-color: transparent;
+        }
+        .order {
+            @extend .btn;
+            background-color: $purple;
+        }
+        .add {
+            @extend .btn;
+            background-color: rgb(156, 236, 35);
+        }
+        .checkout {
+            @extend .btn;
+            background-color: rgb(4, 207, 207);
+        }
+        %shape {
+            background-color: #fff;
+            width: 250px;
+            height: 300px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+        }
+        .card {
+            display: flex;
+            gap: 30px;
+            &-item {
+                @extend %shape;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+        }
+    }
+}
+#part13 {
+    $color: (
+        font-primary: #333,
+        font-focus: crimson,
+    );
+    .frame h1 {
+        color: map-get($color, font-primary);
+        &:hover {
+            color: map-get($color, font-focus);
+        }
+    }
+
 }
